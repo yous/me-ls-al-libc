@@ -11,5 +11,10 @@
     "url": "git@bitbucket.org:protos37/ls-al-me-libc.git"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "config": "^1.10.0",
+    "express": "^4.11.1",
+    "swig": "^1.4.2"
+  }
 }

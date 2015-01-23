@@ -1,0 +1,3 @@
+[submodule "libc-binary-collection"]
+	path = libc-binary-collection
+	url = https://github.com/molnarg/libc-binary-collection.git

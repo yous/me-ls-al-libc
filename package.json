@@ -1,5 +1,5 @@
 {
-  "name": "ls-al-me-libc",
+  "name": "me-ls-al-libc",
   "version": "1.0.0",
   "description": "http://libc.ls-al.me",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:protos37/ls-al-me-libc.git"
+    "url": "git@bitbucket.org:protos37/me-ls-al-libc.git"
   },
   "author": "",
   "license": "ISC",

@@ -4,7 +4,7 @@
 		"hostname": "0.0.0.0"
 	},
 	"mongo": {
-		"url": "mongodb://localhost:27017/ls-al-me-libc"
+		"url": "mongodb://localhost:27017/me-ls-al-libc"
 	},
 	"libc": {
 		"binary": "~/libc"

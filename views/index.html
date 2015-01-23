@@ -1,11 +1,49 @@
 <!doctype html>
 <html>
 	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>libc.ls-al.me</title>
+		<link rel="stylesheet" href="/static/css/bootstrap.min.css">
 	</head>
 	<body>
-		{% for obj in libc %}
-		{{ obj.name }}<br>
+		<div class="container">
+			<div class="page-header">
+				<h1>libc.ls-al.me <small>Find libc binary with fingerprints</small></h1>
+			</div>
+			<div class="col-sm-6">
+				<div class="panel panel-default">
+					<div class="panel-heading">Query</div>
+					<div class="panel-body">
+						<div class="keyvalue-container">
+						</div>
+						<button type="button" class="btn btn-success keyvalue-submit">Submit</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class=" panel panel-default">
+					<div class="panel-heading">Result</div>
+					<div class="list-group">
+						{% for obj in libc %}
+						<a href="/binary/{{ obj.name }}" class="list-group-item">
+							{{ obj.name }}
+						</a>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script src="/static/js/jquery-1.11.2.min.js"></script>
+		<script src="/static/js/bootstrap.min.js"></script>
+		<script src="/static/js/index.js"></script>
+		<script>
+		{% for value in query %}
+		addKeyValue("{{ loop.key }}", "{{ value }}");
 		{% endfor %}
+		addKeyValue("", "");
+		$(".keyvalue-submit").click(submitKeyValue);
+		</script>
 	</body>
 </html>

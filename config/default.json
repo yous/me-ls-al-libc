@@ -5,5 +5,8 @@
 	},
 	"mongo": {
 		"url": "mongodb://localhost:27017/ls-al-me-libc"
+	},
+	"libc": {
+		"binary": "~/libc"
 	}
 }

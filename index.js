@@ -8,6 +8,8 @@ var symbols = require("./libc-binary-collection/symbols.json");
 
 var app = express();
 app.engine("html", swig.renderFile);
+app.use("/static", express.static(__dirname + "/static"));
+app.use("/binary", express.static(config.libc.binary));
 app.set("view engine", "html");
 app.set("views", __dirname + "/views");
 
@@ -32,17 +34,17 @@ MongoClient.connect(config.mongo.url, function (err, db) {
 			}
 
 			if (empty) {
-				res.render("index", {libc: []});
+				res.render("index", {libc: [], query: {}});
 			}
 			else {
 				console.log("Querying %s", JSON.stringify(query));
 				col.find(query, {name: 1}).toArray(function (err, docs) {
 					if (err) {
-						res.render("index", {libc: []});
+						res.render("index", {libc: [], query: req.query});
 						throw err;
 					}
 
-					res.render("index", {libc: docs});
+					res.render("index", {libc: docs, query: req.query});
 				});
 			}
 		});

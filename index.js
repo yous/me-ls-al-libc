@@ -16,14 +16,36 @@ MongoClient.connect(config.mongo.url, function (err, db) {
 		throw err;
 	}
 
-	app.get("/", function (req, res) {
-		res.render("index");
-	});
-
 	db.collection("libc", function (err, col) {
 		if (err) {
 			throw err;
 		}
+
+		app.get("/", function (req, res) {
+			var query = {};
+			var empty = true;
+			for (var key in req.query) {
+				if (req.query.hasOwnProperty(key)) {
+					empty = false;
+					query["symbols." + key] = {"$mod": [0x1000, parseInt(req.query[key]) & 0xFFF]};
+				}
+			}
+
+			if (empty) {
+				res.render("index", {libc: []});
+			}
+			else {
+				console.log("Querying %s", JSON.stringify(query));
+				col.find(query, {name: 1}).toArray(function (err, docs) {
+					if (err) {
+						res.render("index", {libc: []});
+						throw err;
+					}
+
+					res.render("index", {libc: docs});
+				});
+			}
+		});
 
 		var promises = [];
 		for (var key in symbols) {

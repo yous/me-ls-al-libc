@@ -4,6 +4,8 @@
 		<title>libc.ls-al.me</title>
 	</head>
 	<body>
-		libc.ls-al.me
+		{% for obj in libc %}
+		{{ obj.name }}<br>
+		{% endfor %}
 	</body>
 </html>

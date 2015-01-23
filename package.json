@@ -1,0 +1,15 @@
+{
+  "name": "ls-al-me-libc",
+  "version": "1.0.0",
+  "description": "http://libc.ls-al.me",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:protos37/ls-al-me-libc.git"
+  },
+  "author": "",
+  "license": "ISC"
+}

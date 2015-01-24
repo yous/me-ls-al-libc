@@ -1,5 +1,5 @@
 function addKeyValue(key, value) {
-	$(".keyvalue-last").append('<div class="col-xs-2"><button type="button" class="btn btn-default" tabindex="-1"><span class="glyphicon glyphicon-remove"></span></button></div>');
+	$(".keyvalue-last").append('<div class="col-xs-2"><button type="button" class="btn btn-danger" tabindex="-1"><span class="glyphicon glyphicon-remove"></span></button></div>');
 	$(".keyvalue-last button").click(function () {
 		$(this).parent().parent().remove();
 	});
